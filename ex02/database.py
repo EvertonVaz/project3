@@ -50,7 +50,7 @@ class MessageRepository:
         result = []
         for msg in messages:
             result.append(MessageData(role=msg.role, content=msg.content))
-        return result
+        return result[::-1] 
 
     def get_total_messages_count(self) -> int:
         count = self.db_session.query(Message).count()
